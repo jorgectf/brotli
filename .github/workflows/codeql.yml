@@ -48,9 +48,8 @@ jobs:
       name: Build C
       run: |
         mkdir out && cd out
-        ../configure-cmake
-        make
-        make install
+        cmake -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=./installed ..
+        cmake --build . --config Release --target install
 
     # Autobuild attempts to build any compiled languages (C/C++, C#, Go, Java, or Swift).
     # If this step fails, then you should remove it and run the build manually (see below)
